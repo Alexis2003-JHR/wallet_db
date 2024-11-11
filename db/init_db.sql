@@ -39,7 +39,6 @@ CREATE TABLE transaction_types (
 CREATE TABLE transactions (
     id SERIAL PRIMARY KEY,  -- Primary key
     transaction_type_id INT REFERENCES transaction_types(id) ON DELETE CASCADE,  -- Relation to transaction_types
-    cash DECIMAL(15, 2) NOT NULL CHECK (cash >= 0),  -- Cash cannot be negative
     source_account_id INT REFERENCES accounts(id) ON DELETE SET NULL,  -- Relation to accounts
     destination_account_id INT REFERENCES accounts(id) ON DELETE SET NULL,  -- Relation to accounts
     status VARCHAR(50) NOT NULL CHECK (status IN ('Pending', 'Completed', 'Failed')),  -- Restriction for valid status
