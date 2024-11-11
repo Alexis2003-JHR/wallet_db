@@ -5,7 +5,8 @@ CREATE TABLE users (
     last_name VARCHAR(100) NOT NULL,
     address TEXT,
     email VARCHAR(255) UNIQUE NOT NULL,  -- Email must be unique
-    age INT CHECK (age >= 18),  -- Age restriction
+    age INT CHECK (age >= 18) NOT NULL,  -- Age restriction
+    password TEXT NOT NULL,
     last_modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
